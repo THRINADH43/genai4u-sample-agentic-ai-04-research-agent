@@ -1,0 +1,75 @@
+[
+ {
+  "question": "How much solar power has India installed and what is the target?",
+  "must_contain": [
+   "90 GW",
+   "280 GW"
+  ],
+  "must_cite": [
+   "solar-india.md"
+  ]
+ },
+ {
+  "question": "Which states lead in wind power?",
+  "must_contain": [
+   "Tamil Nadu"
+  ],
+  "must_cite": [
+   "wind-india.md"
+  ]
+ },
+ {
+  "question": "How much of India's electricity comes from coal?",
+  "must_contain": [
+   "70"
+  ],
+  "must_cite": [
+   "coal-india.md"
+  ]
+ },
+ {
+  "question": "How many public EV charging stations does India have?",
+  "must_contain": [
+   "12,000"
+  ],
+  "must_cite": [
+   "ev-charging.md"
+  ]
+ },
+ {
+  "question": "How many UPI transactions happen each month?",
+  "must_contain": [
+   "13 billion"
+  ],
+  "must_cite": [
+   "upi-growth.md"
+  ]
+ },
+ {
+  "question": "In which countries can UPI be used?",
+  "must_contain": [
+   "Singapore"
+  ],
+  "must_cite": [
+   "upi-abroad.md"
+  ]
+ },
+ {
+  "question": "Why are millets good for water use?",
+  "must_contain": [
+   "less water"
+  ],
+  "must_cite": [
+   "millets.md"
+  ]
+ },
+ {
+  "question": "What happens to farming when the monsoon is late?",
+  "must_contain": [
+   "kharif"
+  ],
+  "must_cite": [
+   "monsoon-farming.md"
+  ]
+ }
+]

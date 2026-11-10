@@ -1,0 +1,85 @@
+{
+ "model": "groq",
+ "score": 0.875,
+ "cost_usd": 0.001731075,
+ "rows": [
+  {
+   "question": "How much solar power has India installed and what is the target?",
+   "ok": true,
+   "steps": 6,
+   "cost_usd": 0.000218,
+   "sources": [
+    "solar-india.md"
+   ],
+   "report": "- India had about 90\u202fGW of solar capacity installed by 2024.\u202f[solar-india.md]  \n- The government target is 280\u202fGW of solar by 2030.\u202f[solar-india.md]"
+  },
+  {
+   "question": "Which states lead in wind power?",
+   "ok": false,
+   "steps": 6,
+   "cost_usd": 0.000206,
+   "sources": [],
+   "report": "- None of the provided documents contain information about U.S. states with the highest installed wind power capacity. [file.md]"
+  },
+  {
+   "question": "How much of India's electricity comes from coal?",
+   "ok": true,
+   "steps": 6,
+   "cost_usd": 0.0002,
+   "sources": [
+    "coal-india.md"
+   ],
+   "report": "- About 70\u202f% of India\u2019s electricity is generated from coal.\u202f[coal-india.md]"
+  },
+  {
+   "question": "How many public EV charging stations does India have?",
+   "ok": true,
+   "steps": 6,
+   "cost_usd": 0.00019,
+   "sources": [
+    "ev-charging.md"
+   ],
+   "report": "- India had about 12,000 public charging stations in 2024.\u202f[ev-charging.md]"
+  },
+  {
+   "question": "How many UPI transactions happen each month?",
+   "ok": true,
+   "steps": 6,
+   "cost_usd": 0.000212,
+   "sources": [
+    "upi-growth.md"
+   ],
+   "report": "- UPI handled more than 13\u202fbillion transactions a month in 2024.\u202f[upi-growth.md]"
+  },
+  {
+   "question": "In which countries can UPI be used?",
+   "ok": true,
+   "steps": 6,
+   "cost_usd": 0.000228,
+   "sources": [
+    "upi-abroad.md"
+   ],
+   "report": "- UPI can now be used in several countries, including Singapore, the UAE and France, through partner networks.\u202f[upi-abroad.md]"
+  },
+  {
+   "question": "Why are millets good for water use?",
+   "ok": true,
+   "steps": 6,
+   "cost_usd": 0.000217,
+   "sources": [
+    "millets.md"
+   ],
+   "report": "- Millets such as ragi and jowar require less water than rice, making them more water\u2011efficient crops.\u202f[millets.md]"
+  },
+  {
+   "question": "What happens to farming when the monsoon is late?",
+   "ok": true,
+   "steps": 6,
+   "cost_usd": 0.000259,
+   "sources": [
+    "monsoon-farming.md"
+   ],
+   "report": "- About half of India's farmland depends on monsoon rain, so a late monsoon can reduce kharif crops such as rice and cotton. [monsoon-farming.md]  \n- Farmers may shift planting schedules to earlier dates to avoid dependence on late monsoon rains. [monsoon-farming.md]  \n- They may also diversify crop"
+  }
+ ]
+}

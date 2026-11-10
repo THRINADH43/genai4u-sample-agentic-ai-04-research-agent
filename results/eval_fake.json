@@ -1,0 +1,95 @@
+{
+ "model": "fake",
+ "score": 1.0,
+ "cost_usd": 0.0,
+ "rows": [
+  {
+   "question": "How much solar power has India installed and what is the target?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "solar-india.md",
+    "wind-india.md"
+   ],
+   "report": "- India had about 90 GW of solar capacity installed by 2024. Rajasthan and Gujarat have the largest solar parks. The government target is 280 GW of solar by 2030. [solar-india.md]\n- India has about 45 GW of wind power. Tamil Nadu and Gujarat lead in wind capacity. Wind is strongest during the monsoo"
+  },
+  {
+   "question": "Which states lead in wind power?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "ev-charging.md",
+    "wind-india.md"
+   ],
+   "report": "- India has about 45 GW of wind power. Tamil Nadu and Gujarat lead in wind capacity. Wind is strongest during the monsoon months. [wind-india.md]\n- India had about 12,000 public charging stations in 2024. Most chargers are in big cities, which makes long trips hard for electric car owners. [ev-charg"
+  },
+  {
+   "question": "How much of India's electricity comes from coal?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "coal-india.md",
+    "millets.md"
+   ],
+   "report": "- Coal still produces about 70 percent of India's electricity. New coal plants are still being built to meet peak demand. [coal-india.md]\n- Millets such as ragi and jowar need less water than rice. The United Nations named 2023 the International Year of Millets after a proposal from India. [millets."
+  },
+  {
+   "question": "How many public EV charging stations does India have?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "ev-charging.md",
+    "solar-india.md"
+   ],
+   "report": "- India had about 12,000 public charging stations in 2024. Most chargers are in big cities, which makes long trips hard for electric car owners. [ev-charging.md]\n- India had about 90 GW of solar capacity installed by 2024. Rajasthan and Gujarat have the largest solar parks. The government target is "
+  },
+  {
+   "question": "How many UPI transactions happen each month?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "upi-abroad.md",
+    "upi-growth.md"
+   ],
+   "report": "- UPI handled more than 13 billion transactions a month in 2024. Small shops accept UPI with a printed QR code. [upi-growth.md]\n- UPI can now be used in several countries, including Singapore, the UAE and France, through partner networks. [upi-abroad.md]"
+  },
+  {
+   "question": "In which countries can UPI be used?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "ev-charging.md",
+    "upi-abroad.md"
+   ],
+   "report": "- UPI can now be used in several countries, including Singapore, the UAE and France, through partner networks. [upi-abroad.md]\n- India had about 12,000 public charging stations in 2024. Most chargers are in big cities, which makes long trips hard for electric car owners. [ev-charging.md]"
+  },
+  {
+   "question": "Why are millets good for water use?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "groundwater.md",
+    "millets.md"
+   ],
+   "report": "- Millets such as ragi and jowar need less water than rice. The United Nations named 2023 the International Year of Millets after a proposal from India. [millets.md]\n- India uses more groundwater than any other country. Over-pumping for irrigation has lowered the water table in Punjab and Haryana. ["
+  },
+  {
+   "question": "What happens to farming when the monsoon is late?",
+   "ok": true,
+   "steps": 4,
+   "cost_usd": 0.0,
+   "sources": [
+    "monsoon-farming.md",
+    "wind-india.md"
+   ],
+   "report": "- About half of India's farmland depends on monsoon rain. A delayed monsoon can reduce kharif crops such as rice and cotton. [monsoon-farming.md]\n- India has about 45 GW of wind power. Tamil Nadu and Gujarat lead in wind capacity. Wind is strongest during the monsoon months. [wind-india.md]"
+  }
+ ]
+}
