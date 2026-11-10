@@ -21,8 +21,8 @@ log = logging.getLogger("research")
 
 
 class JobRunner:
-    def __init__(self, model, search, workers=2, **limits):
-        self.model, self.search, self.limits = model, search, limits
+    def __init__(self, model, search, workers=2, trace_dir="traces", **limits):
+        self.model, self.search, self.limits, self.trace_dir = model, search, limits, trace_dir
         self.jobs = {}
         self.status = {}
         self.results = {}
@@ -46,7 +46,16 @@ class JobRunner:
             self.results[job_id] = {"error": f"{type(err).__name__}: {err}"}
             self.status[job_id] = "failed"
         job.progress = self.status[job_id]
+        self._save_trace(job_id, job)
         log.info("job %s %s in %d steps, $%.5f", job_id, self.status[job_id], job.steps, job.cost)
+
+    def _save_trace(self, job_id, job):
+        """Every job's trace is also written to traces/<id>.json, so it survives a restart."""
+        os.makedirs(self.trace_dir, exist_ok=True)
+        with open(os.path.join(self.trace_dir, f"{job_id}.json"), "w", encoding="utf-8") as f:
+            json.dump({"id": job_id, "question": job.question, "status": self.status[job_id],
+                       "steps": job.steps, "tokens": job.tokens, "cost_usd": job.cost,
+                       "trace": job.trace}, f, indent=1)
 
     def view(self, job_id):
         job = self.jobs.get(job_id)

@@ -28,6 +28,8 @@ curl localhost:8060/jobs/a1b2c3d4e5f6/trace
 | `MAX_STEPS` | `10` | model calls per job |
 | `JOB_BUDGET_USD` | `0.01` | spending limit per job |
 
+All settings are in `.env.example`. `requirements.txt` is empty: standard library only.
+
 ## Design: orchestrator-workers with an evaluator check
 
 1. **Plan:** the orchestrator splits the question into 1 to 3 sub-questions.
@@ -62,8 +64,9 @@ Sources in a report can only be documents this job read; invented ones are rejec
 
 ## Tracing
 
-Each job keeps a trace: every step with tokens, cost, milliseconds and the start of the
-output, plus each search and check. `GET /jobs/<id>/trace` returns it.
+Each job keeps a trace: every model call with its input and output tokens, cost, milliseconds
+and the start of the output, plus each search (tool call) and check. `GET /jobs/<id>/trace`
+returns it, and when the job ends it is saved to `traces/<id>.json` (git-ignored).
 
 ## Evaluation
 
@@ -88,4 +91,5 @@ normalises Unicode (NFKC) and whitespace before comparing.
 `python -m unittest discover -s tests -t .`, fake models only: a full run, a revision caused
 by an invented source, citation checks, step limit, budget, bad JSON from the planner,
 configuration, the HTTP job lifecycle with progress and trace, and failed jobs. GitHub
-Actions runs the tests and the evaluation with the fake model on every push.
+Actions (`.github/workflows/tests.yml`) runs the tests and the evaluation with the fake
+model on every push.

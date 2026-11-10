@@ -1,5 +1,6 @@
 import json
 import os
+import tempfile
 import threading
 import time
 import unittest
@@ -77,7 +78,8 @@ class AgentTests(unittest.TestCase):
 class ServiceTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.runner = JobRunner(FakeModel(), DocSearch(DOCS))
+        cls.traces = tempfile.TemporaryDirectory()
+        cls.runner = JobRunner(FakeModel(), DocSearch(DOCS), trace_dir=cls.traces.name)
         cls.server = ThreadingHTTPServer(("127.0.0.1", 0), make_handler(cls.runner))
         cls.url = f"http://127.0.0.1:{cls.server.server_address[1]}"
         threading.Thread(target=cls.server.serve_forever, daemon=True).start()
@@ -85,6 +87,7 @@ class ServiceTests(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.server.shutdown()
+        cls.traces.cleanup()
 
     def http(self, method, path, body=None):
         req = urllib.request.Request(self.url + path, method=method, data=json.dumps(body).encode() if body else None)
@@ -106,13 +109,16 @@ class ServiceTests(unittest.TestCase):
         self.assertIn("upi-growth.md", view["result"]["sources"])
         status, trace = self.http("GET", f"/jobs/{body['id']}/trace")
         self.assertTrue(any(t["step"] == "plan" for t in trace))
+        saved = json.load(open(os.path.join(self.traces.name, f"{body['id']}.json")))
+        self.assertEqual(saved["status"], "done")
+        self.assertTrue(all("input_tokens" in t for t in saved["trace"] if t["step"] in ("plan", "write")))
 
     def test_errors(self):
         self.assertEqual(self.http("POST", "/jobs", {"question": "?"})[0], 400)
         self.assertEqual(self.http("GET", "/jobs/nope")[0], 404)
 
     def test_failed_job_reports_error(self):
-        runner = JobRunner(FakeModel(), DocSearch(DOCS), max_steps=1)
+        runner = JobRunner(FakeModel(), DocSearch(DOCS), trace_dir=self.traces.name, max_steps=1)
         job_id = runner.submit("How much solar?")
         for _ in range(100):
             if runner.status[job_id] in ("done", "failed"):
